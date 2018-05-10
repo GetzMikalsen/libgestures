@@ -1,3 +1,9 @@
+libgestures (3.0) bismuth; urgency=medium
+
+  * Prepare for GalliumOS 3.0
+
+ -- reynhout <reynhout@galliumos.org>  Thu, 10 May 2018 03:54:25 +0000
+
 libgestures (2.1.20) xenial; urgency=medium
 
   * Fixe for scrolling
