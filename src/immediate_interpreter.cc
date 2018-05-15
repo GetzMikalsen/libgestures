@@ -1409,7 +1409,7 @@ void ImmediateInterpreter::UpdateThumbState(const HardwareState& hwstate) {
     float dist_sq = DistanceTravelledSq(fs, true, true);
     float dt = hwstate.timestamp - origin_timestamps_[fs.tracking_id];
     bool closer_to_origin = dist_sq <= thumb_dist_sq_thresh;
-    bool slower_moved = (dist_sq * min_dt &&
+    bool slower_moved = (dist_sq * min_dt != 0 &&
                          dist_sq * min_dt * min_dt <
                          thumb_speed_sq_thresh * dt * dt);
     bool relatively_motionless = closer_to_origin || slower_moved;
@@ -2830,7 +2830,7 @@ void ImmediateInterpreter::FillResultGesture(
             state_buffer_.Get(1)->timestamp - state_buffer_.Get(2)->timestamp;
         float dist_sq = DistSq(*current, *prev);
         float dist_sq2 = DistSq(*prev, *prev2);
-        if (dist_sq2 * dt &&  // have prev dist and current time
+        if (dist_sq2 * dt != 0 &&  // have prev dist and current time
             dist_sq2 * dt * dt *
             quick_acceleration_factor_.val_ * quick_acceleration_factor_.val_ <
             dist_sq * dt2 * dt2) {
