@@ -8,8 +8,12 @@ The original code can be found here: https://chromium.googlesource.com/chromiumo
 Requirements
 ===========
 jsoncpp
+jsoncpp-devel
 
-To compile
+Compile/Install
 ===========
+
+```
 make
 sudo make install
+```
